@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentinstag Überraschung</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffccf9;
+            text-align: center;
+            padding: 20px;
+            color: #8b0000;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            font-size: 1.2em;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #yesButton {
+            background-color: #ff69b4;
+            color: white;
+        }
+        #noButton {
+            background-color: #d3d3d3;
+            color: #a9a9a9;
+            cursor: not-allowed;
+        }
+        .message {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #8b0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Willst du mein Valentins-Schatz sein?</h1>
+    <img src="https://i.imgur.com/3QZQZ.png" alt="Cinderella und ihr Prinz">
+    <div class="buttons">
+        <button id="yesButton">Ja</button>
+        <button id="noButton">Nein</button>
+    </div>
+    <div id="message" class="message"></div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const message = document.getElementById('message');
+        const messages = [
+            "Denk nochmal nach! 😉",
+            "Bist du sicher? 😏",
+            "Versuchs nochmal! 😜",
+            "Ich glaube, du meinst Ja! 😘",
+            "Cinderella würde Ja sagen! 👸",
+            "Der Prinz sagt auch Ja! 🤴",
+            "Klick lieber auf Ja! 😍",
+            "Nein? Wirklich? 😢",
+            "Ich glaube, du hast dich vertippt! 😅",
+            "Ja ist die richtige Antwort! 😁"
+        ];
+
+        noButton.addEventListener('touchstart', (event) => {
+            event.preventDefault(); // Verhindert doppelte Auslösung
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            message.textContent = randomMessage;
+        });
+
+        noButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            message.textContent = randomMessage;
+        });
+
+        document.getElementById('yesButton').addEventListener('click', () => {
+            alert("Yay! Ich wusste, du würdest Ja sagen! 💖");
+        });
+    </script>
+</body>
+</html>
